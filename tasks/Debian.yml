@@ -6,6 +6,11 @@
     filename: gocd
     validate_certs: no
 
+- name: Copy gpg key file
+  copy:
+    src: GOCD-GPG-KEY.asc
+    dest: /tmp
+
 - name: Add gcd repo gpg key
   apt_key:
     file: /tmp/GOCD-GPG-KEY.asc
