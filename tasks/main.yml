@@ -2,9 +2,12 @@
 - include_tasks: "{{ansible_os_family}}.yml"
 
 - name: Copy agent properties file
-  copy:
+  template:
     src: autoregister.properties
     dest: /var/lib/go-agent/config
+    owner: root
+    group: go
+    mode: 0640
 
 - name: Copy agent config file
   template:
