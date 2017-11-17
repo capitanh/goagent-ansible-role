@@ -6,3 +6,11 @@
     src: autoregister.properties
     dest: /var/lib/go-agent/config
 
+- name: Copy agent config file
+  template:
+    src: go-agent
+    dest: /etc/default
+    owner: root
+    group: go
+    mode: 0640
+  notify: Start go-agent

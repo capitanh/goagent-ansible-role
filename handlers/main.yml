@@ -1,2 +1,5 @@
 ---
-# handlers file for goagent
+- name: Start go-agent
+  service:
+    name: go-agent
+    status: started
