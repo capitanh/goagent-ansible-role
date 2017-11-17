@@ -1,0 +1,16 @@
+---
+- name: Add gocd yum repo
+  yum_repository:
+    name: gocd
+    description: GoCD YUM Repository
+    baseurl: https://download.gocd.io
+    state: present
+
+- name: Install go.cd and other required packages
+  yum:
+    name: "{{item}}"
+    state: present
+    disable_gpg_check: yes
+  with_items:
+    - git
+    - go-agent

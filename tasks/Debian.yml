@@ -1,0 +1,21 @@
+---
+- name: Add gocd debian repo
+  apt_repository:
+    repo: deb https://download.gocd.org /
+    state: present
+    filename: gocd
+    validate_certs: no
+
+- name: Add gcd repo gpg key
+  apt_key:
+    file: /tmp/GOCD-GPG-KEY.asc
+    state: present
+
+- name: Install go.cd agent and required packages
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  with_items:
+    - git
+    - go-agent
