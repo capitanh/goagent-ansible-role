@@ -1,5 +1,3 @@
 ---
 - name: Start go-agent
-  service:
-    name: go-agent
-    status: started
+  command: /etc/init.d/go-agent start
