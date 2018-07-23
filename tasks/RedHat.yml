@@ -17,4 +17,5 @@
     disable_gpg_check: yes
   with_items:
     - git
+    - java-1.8.0-openjdk-headless
     - go-agent
