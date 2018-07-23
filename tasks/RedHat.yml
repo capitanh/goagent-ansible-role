@@ -1,4 +1,8 @@
 ---
+- name: Disable SELinux
+  selinux:
+    state: disabled
+    
 - name: Add gocd yum repo
   yum_repository:
     name: gocd
